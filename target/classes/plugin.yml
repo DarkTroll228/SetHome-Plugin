@@ -1,0 +1,17 @@
+name: sethome
+version: '1.0-SNAPSHOT'
+main: com.darktroll.sethome.Sethome
+api-version: 1.20
+
+commands:
+  sethome:
+    description: "This is a command"
+    usage: "/sethome <name>"
+
+  homes:
+    description: "Home List UI"
+    usage: "/homes"
+
+  home:
+    description: "Teleport you to your home"
+    usage: "/home <name>"
