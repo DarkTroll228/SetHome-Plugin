@@ -1,3 +1,4 @@
+com\darktroll\sethome\tab\HomeTabCompleter.class
 com\darktroll\sethome\listeners\PlayerJoinLeaveEvent.class
 com\darktroll\sethome\decorator\GamePlayer.class
 com\darktroll\sethome\cmd\SetHomeCommand.class
