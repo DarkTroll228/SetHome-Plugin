@@ -2,6 +2,7 @@ package com.darktroll.sethome.cmd;
 
 import com.darktroll.sethome.HomeUnit;
 import com.darktroll.sethome.managers.PlayerManager;
+import com.darktroll.sethome.utilities.Utility;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -19,7 +20,10 @@ public class SetHomeCommand implements CommandExecutor {
         if(!(sender instanceof Player)) sender.sendMessage("Only for players");
         if(args.length < 1) return false;
         Player player = (Player) sender;
-
+        if (Utility.homeSearch(player, args[0])) {
+            sender.sendMessage("Такая точка уже существует");
+            return true;
+        }
         try {
             HomeUnit home = new HomeUnit(player, player.getLocation(), args[0], Material.OAK_SAPLING);
             manager.getPlayers().get(player).getHomeList().add(home);
