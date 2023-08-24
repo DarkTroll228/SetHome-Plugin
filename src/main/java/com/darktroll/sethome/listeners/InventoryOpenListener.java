@@ -21,6 +21,16 @@ public class InventoryOpenListener implements Listener {
         Player player = (Player) event.getWhoClicked();
         HomeListUI ui = playerManager.getPlayers().get(player).getHomeListUI();
         if(compareInventories(event.getInventory(), ui.getInventory())) {
+            if (event.getCurrentItem() != null) {
+                HomeUnit home = null;
+                for (HomeUnit h : playerManager.getPlayers().get(player).getHomeList()) {
+                    if (h.getName().equals(event.getCurrentItem().getItemMeta().getDisplayName())) {
+                        home = h;
+                        break;
+                    }
+                }
+                player.teleport(home.getLocation());
+            }
             event.setCancelled(true);
         }
     }
