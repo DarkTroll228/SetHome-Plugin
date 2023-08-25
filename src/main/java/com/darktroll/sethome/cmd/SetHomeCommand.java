@@ -26,8 +26,11 @@ public class SetHomeCommand implements CommandExecutor {
         }
         try {
             HomeUnit home = new HomeUnit(player, player.getLocation(), args[0], Material.OAK_SAPLING);
-            manager.getPlayers().get(player).getHomeList().add(home);
-            manager.getPlayers().get(player).getHomeListUI().update(home);
+
+            manager.getPlayer(player).getHomeList().add(home);
+            manager.getPlayer(player).getHomeListUI().update(home);
+//            manager.getPlayers().get(player).getHomeList().add(home);
+//            manager.getPlayers().get(player).getHomeListUI().update(home);
             player.sendMessage(ChatColor.GREEN + "Точка дома " + args[0] + " создана.");
         } catch (Exception e) {
             player.sendMessage("Ошибка: " + e.getMessage());

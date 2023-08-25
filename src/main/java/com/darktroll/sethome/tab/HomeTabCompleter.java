@@ -23,7 +23,8 @@ public class HomeTabCompleter implements TabCompleter {
         if(args.length == 1) {
             ArrayList<String> homes = new ArrayList<>();
 
-            playerManager.getPlayers().get(player).getHomeList()
+//            playerManager.getPlayers().get(player).getHomeList()
+            playerManager.getPlayer(player).getHomeList()
                     .stream()
                     .forEach(h -> homes.add(h.getName()));
             return homes;

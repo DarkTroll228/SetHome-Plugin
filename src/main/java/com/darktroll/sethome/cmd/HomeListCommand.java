@@ -19,7 +19,8 @@ public class HomeListCommand implements CommandExecutor {
         if(!(args.length < 1)) return false;
         Player player = (Player) sender;
 
-        GamePlayer gamePlayer = playerManager.getPlayers().get(player);
+        GamePlayer gamePlayer = playerManager.getPlayer(player);
+//        GamePlayer gamePlayer = playerManager.getPlayers().get(player);
         HomeListUI ui = gamePlayer.getHomeListUI();
         player.openInventory(ui.getInventory());
 

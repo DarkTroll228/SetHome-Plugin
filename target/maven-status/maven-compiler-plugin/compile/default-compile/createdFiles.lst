@@ -7,6 +7,7 @@ com\darktroll\sethome\listeners\ServerReloadListener.class
 com\darktroll\sethome\cmd\HomeListCommand.class
 com\darktroll\sethome\cmd\HomeTeleportCommand.class
 com\darktroll\sethome\Sethome.class
+com\darktroll\sethome\ui\HomeOptionUI.class
 com\darktroll\sethome\listeners\InventoryOpenListener.class
 com\darktroll\sethome\HomeUnit.class
 com\darktroll\sethome\managers\PlayerManager.class

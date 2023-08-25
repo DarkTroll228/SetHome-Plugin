@@ -16,4 +16,12 @@ public class PlayerManager {
     public HashMap<Player, GamePlayer> getPlayers() {
         return players;
     }
+
+    public GamePlayer getPlayer(Player player) {
+        return players.get(player);
+    }
+
+    public void addPlayer(GamePlayer gamePlayer) {
+        players.put(gamePlayer.getPlayer(), gamePlayer);
+    }
 }

@@ -34,4 +34,7 @@ public class GamePlayer {
         return homeListUI;
     }
 
+    public Player getPlayer() {
+        return player;
+    }
 }

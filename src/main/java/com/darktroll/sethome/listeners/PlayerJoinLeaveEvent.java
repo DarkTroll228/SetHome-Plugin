@@ -11,7 +11,7 @@ import org.bukkit.event.player.PlayerQuitEvent;
 
 public class PlayerJoinLeaveEvent implements Listener {
 
-    private PlayerManager manager = PlayerManager.getInstance();
+    private final PlayerManager manager = PlayerManager.getInstance();
 
     @EventHandler
     public void PlayerJoinEvent(PlayerJoinEvent event) {
@@ -19,8 +19,11 @@ public class PlayerJoinLeaveEvent implements Listener {
         GamePlayer gamePlayer = new GamePlayer(player);
         HomeListUI ui = new HomeListUI(gamePlayer);
 
-        manager.getPlayers().put(player, gamePlayer);
-        manager.getPlayers().get(player).setHomeListUI(ui);
+        manager.addPlayer(gamePlayer);
+        manager.getPlayer(player).setHomeListUI(ui);
+
+//        manager.getPlayers().put(player, gamePlayer);
+//        manager.getPlayers().get(player).setHomeListUI(ui);
     }
 
     public void PlayerLeaveEvent(PlayerQuitEvent event) {

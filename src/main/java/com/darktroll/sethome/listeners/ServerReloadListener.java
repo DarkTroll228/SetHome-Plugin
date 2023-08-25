@@ -22,9 +22,14 @@ public class ServerReloadListener implements Listener {
             GamePlayer gamePlayer = new GamePlayer(player);
             HomeListUI ui = new HomeListUI(gamePlayer);
             player.sendMessage("nsasdsad");
-            if(playerManager.getPlayers().get(gamePlayer) == null) continue;
-            playerManager.getPlayers().put(player, gamePlayer);
-            playerManager.getPlayers().get(player).setHomeListUI(ui);
+            if(playerManager.getPlayer(player) != null) continue;
+//            if(playerManager.getPlayers().get(gamePlayer) == null) continue;
+
+            playerManager.addPlayer(gamePlayer);
+            playerManager.getPlayer(player).setHomeListUI(ui);
+
+//            playerManager.getPlayers().put(player, gamePlayer);
+//            playerManager.getPlayers().get(player).setHomeListUI(ui);
         }
     }
 

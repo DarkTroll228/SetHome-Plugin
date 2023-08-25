@@ -23,22 +23,8 @@ public class HomeListUI implements InventoryHolder {
     public HomeListUI(GamePlayer player) {
         this.inventory = Bukkit.createInventory(this, 27, ChatColor.AQUA + "Homes");
         this.homeList = player.getHomeList();
-//        init();
         player.setHomeListUI(this);
     }
-
-//    private void init() {
-//        if (homeList == null) return;
-//        for (HomeUnit home:
-//             homeList) {
-//            ItemStack item = new ItemStack(home.getIcon(), 1);
-//            ItemMeta itemMeta = item.getItemMeta();
-//            itemMeta.setDisplayName(home.getName());
-//            item.setItemMeta(itemMeta);
-//
-//            inventory.addItem(item);
-//        }
-//    }
 
     public void update(HomeUnit home) {
         ItemStack item = new ItemStack(home.getIcon(), 1);

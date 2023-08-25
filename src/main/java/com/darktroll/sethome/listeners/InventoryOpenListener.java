@@ -19,20 +19,24 @@ public class InventoryOpenListener implements Listener {
     @EventHandler
     public void onInventoryOpen(InventoryClickEvent event) {
         Player player = (Player) event.getWhoClicked();
-        HomeListUI ui = playerManager.getPlayers().get(player).getHomeListUI();
-        if(compareInventories(event.getInventory(), ui.getInventory())) {
-            if (event.getCurrentItem() != null) {
-                HomeUnit home = null;
-                for (HomeUnit h : playerManager.getPlayers().get(player).getHomeList()) {
-                    if (h.getName().equals(event.getCurrentItem().getItemMeta().getDisplayName())) {
-                        home = h;
-                        break;
-                    }
-                }
-                player.teleport(home.getLocation());
-            }
+        HomeListUI ui = playerManager.getPlayer(player).getHomeListUI();
+        if(!(compareInventories(event.getInventory(), ui.getInventory()))) return;
+        if (event.getCurrentItem() == null) {
             event.setCancelled(true);
+            return;
         }
+        HomeUnit home = playerManager.getPlayer(player).getHomeByName(event.getCurrentItem().getItemMeta().getDisplayName());
+        if (home == null) {
+            event.setCancelled(true);
+            return;
+        }
+        if (event.getClick().isLeftClick()) player.teleport(home.getLocation());
+        if (event.getClick().isRightClick()) {
+
+        }
+        if (!(event.getClick().isRightClick() && event.getClick().isLeftClick())) event.setCancelled(true);
+        event.setCancelled(true);
+
     }
 
     public boolean compareInventories(Inventory inv1, Inventory inv2) {

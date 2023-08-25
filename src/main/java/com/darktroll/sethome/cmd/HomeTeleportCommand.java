@@ -18,7 +18,8 @@ public class HomeTeleportCommand implements CommandExecutor {
         if(!(sender instanceof Player)) sender.sendMessage("Only for players");
         if(args.length < 1) return false;
         Player player = (Player) sender;
-        GamePlayer gamePlayer = manager.getPlayers().get(player);
+        GamePlayer gamePlayer = manager.getPlayer(player);
+//        GamePlayer gamePlayer = manager.getPlayers().get(player);
 
         HomeUnit homeUnit = gamePlayer.getHomeByName(args[0]);
         player.teleport(homeUnit.getLocation());
