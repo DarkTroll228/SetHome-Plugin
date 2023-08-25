@@ -21,9 +21,6 @@ public class PlayerJoinLeaveEvent implements Listener {
 
         manager.addPlayer(gamePlayer);
         manager.getPlayer(player).setHomeListUI(ui);
-
-//        manager.getPlayers().put(player, gamePlayer);
-//        manager.getPlayers().get(player).setHomeListUI(ui);
     }
 
     public void PlayerLeaveEvent(PlayerQuitEvent event) {

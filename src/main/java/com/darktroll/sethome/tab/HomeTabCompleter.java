@@ -10,7 +10,6 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class HomeTabCompleter implements TabCompleter {
     private final PlayerManager playerManager = PlayerManager.getInstance();
@@ -22,8 +21,6 @@ public class HomeTabCompleter implements TabCompleter {
         Player player = (Player) sender;
         if(args.length == 1) {
             ArrayList<String> homes = new ArrayList<>();
-
-//            playerManager.getPlayers().get(player).getHomeList()
             playerManager.getPlayer(player).getHomeList()
                     .stream()
                     .forEach(h -> homes.add(h.getName()));

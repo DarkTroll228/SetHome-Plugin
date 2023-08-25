@@ -19,9 +19,11 @@ public class HomeTeleportCommand implements CommandExecutor {
         if(args.length < 1) return false;
         Player player = (Player) sender;
         GamePlayer gamePlayer = manager.getPlayer(player);
-//        GamePlayer gamePlayer = manager.getPlayers().get(player);
-
         HomeUnit homeUnit = gamePlayer.getHomeByName(args[0]);
+        if (homeUnit == null) {
+            sender.sendMessage("Такой точки не существует");
+            return true;
+        }
         player.teleport(homeUnit.getLocation());
         return true;
     }

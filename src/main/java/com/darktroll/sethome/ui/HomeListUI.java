@@ -14,11 +14,7 @@ import java.util.ArrayList;
 
 public class HomeListUI implements InventoryHolder {
     private final ArrayList<HomeUnit> homeList;
-
     private final Inventory inventory;
-
-    // Инвентарь должен создаваться сразу при подключении игрока и сохраняться у игрока,
-    // а далее при необходимости добавления нового предмета, он будет обновляться
 
     public HomeListUI(GamePlayer player) {
         this.inventory = Bukkit.createInventory(this, 27, ChatColor.AQUA + "Homes");

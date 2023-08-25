@@ -20,7 +20,6 @@ public class HomeListCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         GamePlayer gamePlayer = playerManager.getPlayer(player);
-//        GamePlayer gamePlayer = playerManager.getPlayers().get(player);
         HomeListUI ui = gamePlayer.getHomeListUI();
         player.openInventory(ui.getInventory());
 

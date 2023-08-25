@@ -1,6 +1,5 @@
 package com.darktroll.sethome.listeners;
 
-import com.darktroll.sethome.Sethome;
 import com.darktroll.sethome.decorator.GamePlayer;
 import com.darktroll.sethome.managers.PlayerManager;
 import com.darktroll.sethome.ui.HomeListUI;
@@ -9,8 +8,6 @@ import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
-
-import java.util.ArrayList;
 
 public class ServerReloadListener implements Listener {
 
@@ -23,13 +20,8 @@ public class ServerReloadListener implements Listener {
             HomeListUI ui = new HomeListUI(gamePlayer);
             player.sendMessage("nsasdsad");
             if(playerManager.getPlayer(player) != null) continue;
-//            if(playerManager.getPlayers().get(gamePlayer) == null) continue;
-
             playerManager.addPlayer(gamePlayer);
             playerManager.getPlayer(player).setHomeListUI(ui);
-
-//            playerManager.getPlayers().put(player, gamePlayer);
-//            playerManager.getPlayers().get(player).setHomeListUI(ui);
         }
     }
 
